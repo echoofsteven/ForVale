@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Special Invitation for Vale</title>
+    <style>
+        /* CSS: Biar tampilannya estetik */
+        body { 
+            background: #ffeef8; 
+            font-family: 'Segoe UI', sans-serif; 
+            height: 100vh; 
+            margin: 0; 
+            overflow: hidden; /* Biar nggak bisa di-scroll pas hati jatuh */
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+        }
+        .card { 
+            background: white; 
+            padding: 40px; 
+            border-radius: 20px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1); 
+            border: 2px solid #ffc1e3; 
+            z-index: 10; 
+            text-align: center; 
+            position: relative;
+        }
+        h1 { color: #ff74bc; }
+        .btn { 
+            display: inline-block; 
+            margin-top: 20px; 
+            padding: 15px 30px; 
+            background: #ff74bc; 
+            color: white; 
+            text-decoration: none; 
+            border-radius: 50px; 
+            font-weight: bold; 
+            transition: 0.3s; 
+        }
+        .btn:hover { transform: scale(1.1); background: #ff4da6; }
+
+        /* Animasi Hati Jatuh */
+        .heart { 
+            position: absolute; 
+            top: -10%; 
+            color: #ffc1e3; 
+            font-size: 20px; 
+            user-select: none;
+            animation: fall linear infinite; 
+        }
+        @keyframes fall { 
+            to { transform: translateY(110vh) rotate(360deg); } 
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h1>Happy 25th Birthday, Vale! 🌸</h1>
+        <p>Sesuai janji aku, kamu jadi orang pertama yang nyobain map bikinan aku kemarin hihi, semoga suka yaaww .</p>
+        <a href="LINK_MAP_ROBLOX_LO_DISINI" class="btn">Buka Kejutan ✨</a>
+    </div>
+
+    <script>
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = '🌸'; // Lo bisa ganti jadi '🌸' kalau mau bunga
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 3 + 2 + 's'; // Kecepatan jatuh beda-beda
+            heart.style.opacity = Math.random();
+            document.body.appendChild(heart);
+
+            // Hapus hati kalau udah kelamaan biar browser nggak berat
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
+
+        // Jalankan fungsi createHeart setiap 300 milidetik
+        setInterval(createHeart, 300);
+    </script>
+
+</body>
+</html>
